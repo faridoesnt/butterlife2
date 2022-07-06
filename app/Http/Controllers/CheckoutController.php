@@ -52,12 +52,6 @@ class CheckoutController extends Controller
         return response()->view($view, $data);
     }
 
-    // public function getCities(Request $request)
-    // {
-    //     $city2 = City2::where('province_id', $request->id)->pluck('name', 'city_id');
-    //     return response()->json($city2);
-    // }
-
     public function getCities($id)
     {
         $city2 = City2::where('province_id', $id)->pluck('name', 'city_id');
@@ -73,18 +67,16 @@ class CheckoutController extends Controller
             'courier'       => $request->courier // kode kurir pengiriman: ['jne', 'tiki', 'pos'] untuk starter
         ])->get();
 
-        return response()->json($cost);
+        return response()->json($cost);   
     }
     
     public function proses(Request $request)
-    {
-        // dd($request->all());
-        
+    {   
         // save users data
         $user = Auth::user()->update([
             'address_one'   => $request->address_one,
             'address_two'   => $request->address_two,
-            'provinces_id'   => $request->province_origin,
+            'provinces_id'  => $request->province_origin,
             'regencies_id'  => $request->city_origin,
             'zip_code'      => $request->zip_code,
             'country'       => $request->country,
@@ -117,7 +109,7 @@ class CheckoutController extends Controller
                 'code'              => $trx,
                 'size'              => $cart->size,
                 'qty'               => $cart->qty,
-                'courier'           => $request->courier,
+                'courier'           => $request->courier ?? '',
                 'service'           => $request->service,
             ]);
 

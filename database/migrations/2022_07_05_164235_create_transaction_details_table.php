@@ -24,7 +24,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->string('size');
             $table->integer('qty');
             $table->string('courier');
-            $table->string('service');
+            $table->string('service')->nullable();
             $table->timestamps();
         });
     }

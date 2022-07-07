@@ -34,16 +34,16 @@ class AdminUserController extends Controller
                                 <button class="btn btn-dark dropdown-toggle mr-1 mb-1"
                                         type="button"
                                         data-toggle="dropdown">
-                                    Action
+                                    Aksi
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="' . route('user.edit', $item->id) . '">
-                                        Edit
+                                        Sunting
                                     </a>
                                     <form action="' . route('user.destroy',  $item->id) .'" method="POST">
                                         '. method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
-                                            Delete
+                                            Hapus
                                         </button>
                                     </form>
                                 </div>

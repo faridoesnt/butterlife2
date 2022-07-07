@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Category Butterlife
+    Admin - Kategori - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Category</h2>
-            <p class="dashboard-subtitle">Edit Category</p>
+            <h2 class="dashboard-title">Kategori</h2>
+            <p class="dashboard-subtitle">Sunting Kategori</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Name<i class="text-danger">*</i></label>
+                                                <label>Nama<i class="text-danger">*</i></label>
                                                 <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
                                             </div>
                                         </div>
@@ -42,7 +42,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-dark px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

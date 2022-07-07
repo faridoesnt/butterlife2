@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Product Butterlife
+    Admin - Produk - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Product</h2>
-            <p class="dashboard-subtitle">Edit Product</p>
+            <h2 class="dashboard-title">Produk</h2>
+            <p class="dashboard-subtitle">Sunting Produk</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Name<i class="text-danger">*</i></label>
+                                                <label>Nama Produk<i class="text-danger">*</i></label>
                                                 <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
                                             </div>
                                         </div>
@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Category<i class="text-danger">*</i></label>
+                                                <label>Kategori<i class="text-danger">*</i></label>
                                                 <select name="categories_id" class="form-control">
                                                     <option value="{{ $item->categories_id }}" selected>{{ $item->category->name }}</option>
                                                     @foreach ($categories as $category)
@@ -62,13 +62,13 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Price<i class="text-danger">*</i></label>
+                                                <label>Harga<i class="text-danger">*</i></label>
                                                 <input type="number" name="price" class="form-control" value="{{ $item->price }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Description<i class="text-danger">*</i></label>
+                                                <label>Deskripsi Produk<i class="text-danger">*</i></label>
                                                 <textarea name="description" id="editor">{!! $item->description !!}</textarea>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-dark px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

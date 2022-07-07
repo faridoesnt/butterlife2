@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Product Butterlife
+    Admin - Produk - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Product</h2>
-            <p class="dashboard-subtitle">List of Product</p>
+            <h2 class="dashboard-title">Produk</h2>
+            <p class="dashboard-subtitle">Daftar Produk</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -20,19 +20,19 @@
                         <div class="card">
                             <div class="card-body">
                                 <a href="{{ route('product.create') }}" class="btn btn-dark mb-3">
-                                    + Create New Product
+                                    + Buat Produk Baru
                                 </a>
                                 <div class="table-responsive">
                                     <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Name</th>
-                                                <th>Category</th>
-                                                <th>Price</th>
+                                                <th>Nama</th>
+                                                <th>Kategori</th>
+                                                <th>Harga</th>
                                                 <th>Admin</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -41,11 +41,11 @@
                                             <tr>
                                                 <th></th>
                                                 <th>Nama</th>
-                                                <th>Category</th>
-                                                <th>Price</th>
+                                                <th>Kategori</th>
+                                                <th>Harga</th>
                                                 <th>Admin</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>

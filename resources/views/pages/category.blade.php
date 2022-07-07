@@ -10,7 +10,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12 text-center" data-aos="fade-up">
-						<h3>CATEGORY</h3>
+						<h3>KATEGORI</h3>
 					</div>
 				</div>
 				<div class="row align-items-center justify-content-center">
@@ -25,7 +25,7 @@
 					</div>
 					@empty
 					<div class="col-12 text-center py-5" data-aos="fade-up">
-						<h5>No Category Found.</h5>
+						<h5>Tidak ada kategori.</h5>
 					</div>
 					@endforelse
 				</div>
@@ -36,7 +36,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12" data-aos="fade-up">
-						<h2 class="mb-3">ALL PRODUCTS</h2>
+						<h2 class="mb-3">SEMUA PRODUK</h2>
 					</div>
 				</div>
 				<div class="row">
@@ -61,7 +61,7 @@
 						</div>
 						@empty
 						<div class="col-12 text-center py-5" data-aos="fade-up">
-							<h5>No Products Found.</h5>
+							<h5>Tidak ada produk.</h5>
 						</div>
 					@endforelse
 				</div>

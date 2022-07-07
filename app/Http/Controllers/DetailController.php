@@ -62,7 +62,7 @@ class DetailController extends Controller
         } 
         else 
         {
-            return redirect()->back()->with('error', 'Sorry, not enough stock.');
+            return redirect()->back()->with('error', 'Maaf, stok tidak cukup.');
         }
 
         // $data = [

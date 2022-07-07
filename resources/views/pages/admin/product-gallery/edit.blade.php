@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Products Gallery Butterlife
+    Admin - Foto Produk - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Products Gallery</h2>
-            <p class="dashboard-subtitle">Edit Products Gallery</p>
+            <h2 class="dashboard-title">Foto Produk</h2>
+            <p class="dashboard-subtitle">Sunting Foto Produk</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product<i class="text-danger">*</i></label>
+                                                <label>Produk<i class="text-danger">*</i></label>
                                                 <select name="products_id" class="form-control">
                                                     <option value="{{ $item->products_id }}" selected>{{ $item->product->name }}</option>
                                                     @foreach ($products as $product)
@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Photo's<i class="text-danger">*</i></label>
+                                                <label>Foto<i class="text-danger">*</i></label>
                                                 <table>
                                                     <tr><td>
                                                         <img src="{{ asset('storage/' . $item->photos) }}" class="img-thumbnail w-25 mb-2" >
@@ -58,7 +58,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-success px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

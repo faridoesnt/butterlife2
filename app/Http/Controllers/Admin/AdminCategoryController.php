@@ -33,7 +33,7 @@ class AdminCategoryController extends Controller
                             <form action="' . route('category-status',  $item->id) .'" method="POST">
                                 '. csrf_field() . '
                                 <button type="submit" class="btn btn-danger mr-1 mb-1">
-                                    Nonactive
+                                    Nonaktifkan
                                 </button>
                             </form>
                         </div>
@@ -42,16 +42,16 @@ class AdminCategoryController extends Controller
                                 <button class="btn btn-dark dropdown-toggle mr-1 mb-1"
                                         type="button"
                                         data-toggle="dropdown">
-                                    Action
+                                    Aksi
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="' . route('category.edit', $item->id) . '">
-                                        Edit
+                                        Sunting
                                     </a>
                                     <form action="' . route('category.destroy',  $item->id) .'" method="POST">
                                         '. method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
-                                            Delete
+                                            Hapus
                                         </button>
                                     </form>
                                 </div>
@@ -64,7 +64,7 @@ class AdminCategoryController extends Controller
                             <form action="' . route('category-status',  $item->id) .'" method="POST">
                                 '. csrf_field() . '
                                 <button type="submit" class="btn btn-success mr-1 mb-1">
-                                    Set Active
+                                    Aktifkan
                                 </button>
                             </form>
                         </div>
@@ -73,16 +73,16 @@ class AdminCategoryController extends Controller
                                 <button class="btn btn-dark dropdown-toggle mr-1 mb-1"
                                         type="button"
                                         data-toggle="dropdown">
-                                    Action
+                                    Aksi
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="' . route('category.edit', $item->id) . '">
-                                        Edit
+                                        Sunting
                                     </a>
                                     <form action="' . route('category.destroy',  $item->id) .'" method="POST">
                                         '. method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
-                                            Delete
+                                            Hapus
                                         </button>
                                     </form>
                                 </div>

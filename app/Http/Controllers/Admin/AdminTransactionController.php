@@ -102,7 +102,7 @@ class AdminTransactionController extends Controller
                     return '
                         <div class="btn-group">
                             <a class="btn btn-dark" href="' . route('transactions.edit',  $item->id) .'">
-                                Edit
+                                Sunting
                             </a>
                         </div>
                     ';

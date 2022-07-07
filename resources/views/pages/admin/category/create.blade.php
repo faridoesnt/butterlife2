@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Category Butterlife
+    Admin - Kategori - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Category</h2>
-            <p class="dashboard-subtitle">Create New Category</p>
+            <h2 class="dashboard-title">Kategori</h2>
+            <p class="dashboard-subtitle">Buat Kategori Baru</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -33,7 +33,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Name<i class="text-danger">*</i></label>
+                                                <label>Nama<i class="text-danger">*</i></label>
                                                 <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
                                             </div>
                                         </div>
@@ -41,8 +41,8 @@
                                             <div class="form-group">
                                                 <label>Status<i class="text-danger">*</i></label>
                                                 <select name="status" required class="form-control">
-                                                    <option value="Aktif">Active</option>
-                                                    <option value="Nonaktif">Nonactive</option>
+                                                    <option value="Aktif">Aktif</option>
+                                                    <option value="Nonaktif">Nonaktif</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -50,7 +50,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-dark px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

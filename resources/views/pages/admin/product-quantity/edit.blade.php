@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Product Quantity Butterlife
+    Admin - Kuantitas Produk - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Product Quantity</h2>
-            <p class="dashboard-subtitle">Edit Product Quantity</p>
+            <h2 class="dashboard-title">Kuantitas Produk</h2>
+            <p class="dashboard-subtitle">Sunting Kuantitas Produk</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product<i class="text-danger">*</i></label>
+                                                <label>Produk<i class="text-danger">*</i></label>
                                                 <select name="products_id" class="form-control">
                                                     <option value="{{ $item->products_id }}" selected>{{ $item->product->name }}</option>
                                                     @foreach ($products as $product)
@@ -45,13 +45,13 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Size<i class="text-danger">*</i></label>
+                                                <label>Ukuran<i class="text-danger">*</i></label>
                                                 <input type="text" name="size" class="form-control" value="{{ $item->size }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Qty<i class="text-danger">*</i></label>
+                                                <label>Jumlah<i class="text-danger">*</i></label>
                                                 <input type="number" name="quantity" class="form-control" value="{{ $item->quantity }}">
                                             </div>
                                         </div>
@@ -59,7 +59,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-dark px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

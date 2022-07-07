@@ -44,14 +44,14 @@ class CartController extends Controller
 
                 return response()->json([
                     'status' => 200,
-                    'message' => 'Successfully Add Quantity'
+                    'message' => 'Sukses mengubah jumlah.'
                 ]);
         } 
         else 
         {
             return response()->json([
                 'status' => 400,
-                'message' => 'Sorry, not enough stock.'
+                'message' => 'Maaf, stok tidak cukup.'
             ]);
         }
     }

@@ -31,23 +31,23 @@
               href="{{ route('home') }}"
               class="list-group-item list-group-item-action"
             >
-              HOMEPAGE
+              HOME
             </a>
             <a
               href="{{ route('dashboard') }}"
               class="list-group-item list-group-item-action {{ (request()->is('dashboard')) ? 'active' : '' }}"
             >
-              DASHBOARD
+              DASBOR
             </a>
             <a
               href="{{ route('dashboard-transaction') }}"
               class="list-group-item list-group-item-action {{ (request()->is('dashboard/transactions*')) ? 'active' : '' }}"
             >
-              TRANSACTIONS
+              TRANSAKSI
             </a>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action">SIGN OUT
+                document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action">KELUAR
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
@@ -92,14 +92,14 @@
                         alt=""
                         class="rounded-circle mr-2 profile-picture"
                       />
-                      Hi, {{ Auth::user()->name }}
+                      Halo, {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu">
-                      <a href="{{ route('cart') }}" class="dropdown-item">CART</a>
+                      <a href="{{ route('cart') }}" class="dropdown-item">KERANJANG</a>
                       <div class="dropdown-divider"></div>
                       <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="dropdown-item">LOGOUT
+                        document.getElementById('logout-form').submit();" class="dropdown-item">KELUAR
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf
@@ -124,15 +124,15 @@
                 <!-- Mobile Menu -->
                 <ul class="navbar-nav d-block d-lg-none">
                   <li class="nav-item">
-                    <a href="" class="nav-link text-uppercase"> Hi, {{ Auth::user()->name }} </a>
+                    <a href="" class="nav-link text-uppercase"> Halo, {{ Auth::user()->name }} </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ route('cart') }}" class="nav-link d-inline-block">CART</a>
+                      <a href="{{ route('cart') }}" class="nav-link d-inline-block">KERANJANG</a>
                   </li>
                   <li class="nav-item">
                       <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="nav-link d-inline-block">LOGOUT
+                        document.getElementById('logout-form').submit();" class="nav-link d-inline-block">KELUAR
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf

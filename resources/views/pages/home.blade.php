@@ -37,8 +37,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12" data-aos="fade-up">
-                        {{-- <h5>NEW ARRIVALS</h5> --}}
-                        <h1 class="mb-3">NEW ARRIVALS</h1>
+                        <h1 class="mb-3">PRODUK TERBARU</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -68,7 +67,7 @@
                         </div>
                     @empty
                         <div class="col-12 text-center py-5" data-aos="fade-up">
-                            <h5>No Products Found.</h5>
+                            <h5>Tidak ada produk.</h5>
                         </div>
                     @endforelse
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Transactions Butterlife
+    Admin - Transaksi - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Transactions</h2>
-            <p class="dashboard-subtitle">List of Transactions</p>
+            <h2 class="dashboard-title">Transaksi</h2>
+            <p class="dashboard-subtitle">Daftar Transaksi</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -24,42 +24,42 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Code</th>
-                                                <th>Code Details</th>
-                                                <th>Product</th>
-                                                <th>Size</th>
-                                                <th>Qty</th>
-                                                <th>Product Price</th>
-                                                <th>Total Product Price</th>
-                                                <th>Shipping Price</th>
-                                                <th>Total Price</th>
-                                                <th>Courier</th>
+                                                <th>Kode</th>
+                                                <th>Kode Detail</th>
+                                                <th>Produk</th>
+                                                <th>Ukuran</th>
+                                                <th>Jumlah</th>
+                                                <th>Harga Produk</th>
+                                                <th>Total Harga Produk</th>
+                                                <th>Harga Pengiriman</th>
+                                                <th>Total Harga</th>
+                                                <th>Kurir</th>
                                                 <th>Service</th>
-                                                <th>Payment Status</th>
+                                                <th>Status Pembayaran</th>
                                                 <th>Resi</th>
-                                                <th>Shipping Status</th>
-                                                <th>Action</th>
+                                                <th>Status Pengiriman</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th></th>
-                                                <th>Code</th>
-                                                <th>Code Details</th>
-                                                <th>Product</th>
-                                                <th>Size</th>
-                                                <th>Qty</th>
-                                                <th>Product Price</th>
-                                                <th>Total Product Price</th>
-                                                <th>Shipping Price</th>
-                                                <th>Total Price</th>
-                                                <th>Courier</th>
+                                                <th>Kode</th>
+                                                <th>Kode Detail</th>
+                                                <th>Produk</th>
+                                                <th>Ukuran</th>
+                                                <th>Jumlah</th>
+                                                <th>Harga Produk</th>
+                                                <th>Total Produk Price</th>
+                                                <th>Harga Pengiriman</th>
+                                                <th>Total Harga</th>
+                                                <th>Kurir</th>
                                                 <th>Service</th>
-                                                <th>Payment Status</th>
+                                                <th>Status Pembayaran</th>
                                                 <th>Resi</th>
-                                                <th>Shipping Status</th>
-                                                <th>Action</th>
+                                                <th>Status Pengiriman</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -4,9 +4,9 @@
     >
     <div class="container">
     <a href="{{ route('home') }}" class="navbar-brand">
-            <h3>
-                BUTTERLIFE
-            </h3>
+        <h4>
+            <strong>BUTTERLIFE</strong>
+        </h4>
     </a>
     <button
         class="navbar-toggler"
@@ -22,7 +22,7 @@
             <a href="{{ route('home') }}" class="nav-link">HOME</a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('categories') }}" class="nav-link"><strong>SHOP ALL PRODUCTS</strong></a>
+            <a href="{{ route('categories') }}" class="nav-link"><strong>KATEGORI</strong></a>
         </li>
         </ul>
     </div>

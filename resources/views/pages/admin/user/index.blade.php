@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin User Butterlife
+    Admin - Pengguna - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">User</h2>
-            <p class="dashboard-subtitle">List of User</p>
+            <h2 class="dashboard-title">Pengguna</h2>
+            <p class="dashboard-subtitle">Daftar Pengguna</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -20,27 +20,27 @@
                         <div class="card">
                             <div class="card-body">
                                 <a href="{{ route('user.create') }}" class="btn btn-dark mb-3">
-                                    + Create New User
+                                    + Buat Pengguna Baru
                                 </a>
                                 <div class="table-responsive">
                                     <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Name</th>
+                                                <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Roles</th>
-                                                <th>Action</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th></th>
-                                                <th>Name</th>
+                                                <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Roles</th>
-                                                <th>Action</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>

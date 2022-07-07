@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Cart Butterlife
+    Keranjang - Butterlife
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('home') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active">Cart</li>
+                                <li class="breadcrumb-item active">Keranjang</li>
                             </ol>
                         </nav>
                     </div>
@@ -46,12 +46,12 @@
                                 <thead>
                                     <tr>
                                         <td></td>
-                                        <td>Name</td>
-                                        <td>Size</td>
-                                        <td class="text-center">Qty</td>
-                                        <td class="text-center">Product Price</td>
-                                        <td class="text-center">Total Price</td>
-                                        <td class="text-center">Action</td>
+                                        <td>Nama</td>
+                                        <td>Ukuran</td>
+                                        <td class="text-center">Jumlah</td>
+                                        <td class="text-center">Harga Produk</td>
+                                        <td class="text-center">Total Harga</td>
+                                        <td class="text-center"></td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -87,9 +87,9 @@
                                                         <button type="submit" class="input-group-text bg-white rounded-0 changeQuantity increment-btn">+</button>
                                                     </div>
                                                 @elseif ($cart->product->quantity->quantity == '0')
-                                                    <p class="text-danger text-center product-title">Out of Stock</p>
+                                                    <p class="text-danger text-center product-title">Persediaan habis.</p>
                                                 @else
-                                                    <p class="text-danger text-center product-title">Sorry, not enough stock</p>
+                                                    <p class="text-danger text-center product-title">Maaf, stok tidak cukup.</p>
                                                 @endif
                                             </td>
                                             <td style="width: 20%" class="text-center">
@@ -104,7 +104,7 @@
                                                 <form action="{{ route('cart-delete', $cart->id) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button type="submit" class="btn btn-dark"> Remove </button>
+                                                    <button type="submit" class="btn btn-dark"> Hapus </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -125,14 +125,14 @@
                             </div>
                             <div class="row" data-aos="fade-up" data-aos-delay="200">
                                 <div class="col-6 col-md-4">
-                                    <div class="product-title">Calculate :</div>
+                                    <div class="product-title">Total :</div>
                                 </div>
                                 <div class="col-6 col-md-4">
                                     <div class="product-title text-success">Rp. {{ number_format($totalPrice ?? 0) }}</div>
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <a href="{{ route('checkout') }}" class="btn btn-dark mt-4 px-4 btn-block rounded-0">
-                                    Checkout Now
+                                    Checkout
                                     </a>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 text-center p-5 mt-5" data-aos="fade-up" data-aos-delay="100">
-                            <h1>No Data Found.</h1>
+                            <h2>Tidak ada produk di Keranjang.</h2>
                         </div>
                     </div>
                 </div>

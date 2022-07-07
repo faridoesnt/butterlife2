@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Products Gallery Butterlife
+    Admin - Foto Produk - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Products Gallery</h2>
-            <p class="dashboard-subtitle">List of Products Gallery</p>
+            <h2 class="dashboard-title">Foto Produk</h2>
+            <p class="dashboard-subtitle">Daftar Foto Produk</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -20,25 +20,25 @@
                         <div class="card">
                             <div class="card-body">
                                 <a href="{{ route('product-gallery.create') }}" class="btn btn-dark mb-3">
-                                    + Create New Photo Product
+                                    + Buat Foto Produk
                                 </a>
                                 <div class="table-responsive">
                                     <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Product</th>
-                                                <th>Photo</th>
-                                                <th>Action</th>
+                                                <th>Produk</th>
+                                                <th>Foto</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
                                         <tfoot>
                                             <tr>
                                                 <th></th>
-                                                <th>Product</th>
-                                                <th>Photo</th>
-                                                <th>Action</th>
+                                                <th>Produk</th>
+                                                <th>Foto</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Detail Page Butterlife
+    Detail Produk - Butterlife
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
                   <li class="breadcrumb-item">
                     <a href="{{ route('home') }}">Home</a>
                   </li>
-                  <li class="breadcrumb-item active">Product Details</li>
+                  <li class="breadcrumb-item active">Detail Produk</li>
                 </ol>
               </nav>
             </div>
@@ -92,7 +92,7 @@
             @auth  
               <div class="row">
                 <div class="col-12 col-lg-6 mb-3">
-                  <strong>PICK YOUR SIZE :</strong><br>
+                  <strong>PILIH UKURAN :</strong><br>
                   <select name="size" class="form-control rounded-0">
                     @foreach ($products_quantity as $item)
                       <option value="{{ $item->size }}">{{ $item->size }}</option>
@@ -100,7 +100,7 @@
                   </select>
                 </div>
                 <div class="col-12 col-lg-6 mb-3">
-                  <strong>Qty :</strong><br>
+                  <strong>Jumlah :</strong><br>
                   <input type="number" name="qty" class="form-control rounded-0" min="1" value="1">
                   @if (session('error'))
                       <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
@@ -114,20 +114,20 @@
               </div>
             @endauth
             <div class="row">
-              <div class="col-lg-2" data-aos="zoom-in">
+              <div class="col-lg-3" data-aos="zoom-in">
                 @auth
                     <button
                       type="submit"
                       class="btn btn-dark px-4 text-white btn-black mb-3"
                     >
-                      Add to Cart
+                      Masukkan ke Keranjang
                     </button>
                 @else
                   <a
                     href="{{ route('login') }}"
                     class="btn btn-dark px-4 text-white btn-black mb-3"
                   >
-                    Sign in to Add
+                    Masuk
                   </a>
                 @endauth
               </div>
@@ -136,60 +136,6 @@
           </form>
         </section>
 
-        {{-- <section class="store-review">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12 col-lg-8 mt-3 mb-3">
-                <h5>Customer Review (3)</h5>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-lg-8">
-                <ul class="list-unstyled">
-                  <li class="media">
-                    <img
-                      src="/images/icon-testimonial-1.png"
-                      alt=""
-                      class="mr-3 rounded-circle"
-                    />
-                    <div class="media-body">
-                      <h5 class="mt-2 mb-1">Hazza Risky</h5>
-                      I thought it was not good for living room. I really happy
-                      to decided buy this product last week now feels like
-                      homey.
-                    </div>
-                  </li>
-                  <li class="media">
-                    <img
-                      src="/images/icon-testimonial-2.png"
-                      alt=""
-                      class="mr-3 rounded-circle"
-                    />
-                    <div class="media-body">
-                      <h5 class="mt-2 mb-1">Anna Sukkirata</h5>
-                      Color is great with the minimalist concept. Even I thought
-                      it was made by Cactus industry. I do really satisfied with
-                      this.
-                    </div>
-                  </li>
-                  <li class="media">
-                    <img
-                      src="/images/icon-testimonial-3.png"
-                      alt=""
-                      class="mr-3 rounded-circle"
-                    />
-                    <div class="media-body">
-                      <h5 class="mt-2 mb-1">Dakimu Wangi</h5>
-                      When I saw at first, it was really awesome to have with.
-                      Just let me know if there is another upcoming product like
-                      this.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section> --}}
       </div>
     </div>
 @endsection

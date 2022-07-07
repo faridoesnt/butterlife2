@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Transactions Butterlife
+    Admin - Transaksi - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Transactions</h2>
-            <p class="dashboard-subtitle">Edit Transactions</p>
+            <h2 class="dashboard-title">Transaksi</h2>
+            <p class="dashboard-subtitle">Sunting Transaksi</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -34,55 +34,55 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Code</label>
+                                                <label>Kode</label>
                                                 <input class="form-control" value="{{ $item->transaction->code }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product</label>
+                                                <label>Produk</label>
                                                 <input class="form-control" value="{{ $item->product->name }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Size</label>
+                                                <label>Ukuran</label>
                                                 <input class="form-control" value="{{ $item->size }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Qty</label>
+                                                <label>Jumlah</label>
                                                 <input class="form-control" value="{{ $item->qty }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Price</label>
+                                                <label>Harga Produk</label>
                                                 <input class="form-control" value="{{ number_format($item->price) }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Total Product Price</label>
+                                                <label>Total Harga Produk</label>
                                                 <input class="form-control" value="{{ number_format($item->transaction->product_price) }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Shipping Price</label>
+                                                <label>Harga Pengiriman</label>
                                                 <input class="form-control" value="{{ number_format($item->transaction->shipping_price) }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Total Price</label>
+                                                <label>Total Harga</label>
                                                 <input class="form-control" value="{{ number_format($item->transaction->total_price) }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Courier</label>
+                                                <label>Kurir</label>
                                                 <input class="form-control" value="{{ $item->courier }}" disabled>
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Payment Status</label>
+                                                <label>Status Pembayaran</label>
                                                 <input class="form-control" value="{{ $item->transaction->transaction_status }}" disabled>
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Shipping Status</label>
+                                                <label>Status Pengiriman</label>
                                                 <select name="shipping_status" class="form-control">
                                                     @if ($item->shipping_status == 'PENDING')
                                                         <option value="{{ $item->shipping_status }}" selected>{{ $item->shipping_status }}</option>
@@ -130,7 +130,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-dark px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

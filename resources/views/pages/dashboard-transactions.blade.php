@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    Dashboard Transactions Butterlife
+    Dasbor Tranksaksi - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Transactions</h2>
-            <p class="dashboard-subtitle">Look what you have made today!</p>
+            <h2 class="dashboard-title">Transaksi</h2>
+            <p class="dashboard-subtitle">Lihat transaksi Anda!</p>
             </div>
             <div class="dashboard-content">
             <div class="row">

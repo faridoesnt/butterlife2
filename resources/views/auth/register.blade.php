@@ -10,83 +10,89 @@
       <div class="section-store-auth" data-aos="fade-up">
         <div class="container">
           <div class="row align-items-center justify-content-center row-login">
-            <div class="col-lg-4">
-              <h2>Butterlife Sign Up!</h2>
-              <form method="POST" action="{{ route('register') }}" class="mt-3">
-                @csrf
-                <div class="form-group">
-                  <label>Full Name</label>
-                  <input id="name"
-                        type="text"
-                        v-model="name" 
-                        class="form-control rounded-0 @error('name') is-invalid @enderror" 
-                        name="name" 
-                        value="{{ old('name') }}" 
-                        required 
-                        autofocus>
-                  @error('name')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
+            <div class="col-10 col-md-4 col-lg-6">
+              <div class="card shadow">
+                <div class="card-header bg-dark">
+                  <h2 class="text-center text-white mt-2"><strong>Daftar</strong></h2>
                 </div>
-                <div class="form-group">
-                  <label>Email Adress</label>
-                  <input id="email" 
-                        v-model="email"
-                        @change="checkForEmailAvailability()" 
-                        type="email" 
-                        class="form-control rounded-0 @error('email') is-invalid @enderror"
-                        :class="{ 'is-valid' : this.email_unavailable }"
-                        name="email" 
-                        value="{{ old('email') }}" 
-                        required 
-                        autocomplete="email">
-                  @error('email')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
+                <div class="card-body">
+                  <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="form-group">
+                      <label>Nama Lengkap</label>
+                      <input id="name"
+                            type="text"
+                            v-model="name" 
+                            class="form-control rounded-0 @error('name') is-invalid @enderror" 
+                            name="name" 
+                            value="{{ old('name') }}" 
+                            required 
+                            autofocus>
+                      @error('name')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input id="email" 
+                            v-model="email"
+                            @change="checkForEmailAvailability()" 
+                            type="email" 
+                            class="form-control rounded-0 @error('email') is-invalid @enderror"
+                            :class="{ 'is-valid' : this.email_unavailable }"
+                            name="email" 
+                            value="{{ old('email') }}" 
+                            required 
+                            autocomplete="email">
+                      @error('email')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input id="password" 
+                            type="password" 
+                            class="form-control rounded-0 @error('password') is-invalid @enderror" 
+                            name="password" 
+                            required 
+                            autocomplete="new-password">
+                      @error('password')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                      <label>Konfirmasi Password</label>
+                      <input id="password-confirm" 
+                            type="password" 
+                            class="form-control rounded-0 @error('password_confirmation') is-invalid @enderror" 
+                            name="password_confirmation" 
+                            required 
+                            autocomplete="new-password">
+                      @error('password_confirmation')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-dark btn-block mt-4 rounded-0"
+                      :disabled="this.email_unavailable"
+                    >
+                      Daftar
+                    </button>
+                    <small class="btn btn-block" style="font-size: 13px; color: #aaa; cursor: text;">
+                          Sudah punya akun? <a href="{{ route('login') }}" style="text-decoration: none; color: black;">Masuk</a>
+                    </small>
+                  </form>
                 </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input id="password" 
-                        type="password" 
-                        class="form-control rounded-0 @error('password') is-invalid @enderror" 
-                        name="password" 
-                        required 
-                        autocomplete="new-password">
-                  @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-                </div>
-                <div class="form-group">
-                  <label>Password Confirm</label>
-                  <input id="password-confirm" 
-                        type="password" 
-                        class="form-control rounded-0 @error('password_confirmation') is-invalid @enderror" 
-                        name="password_confirmation" 
-                        required 
-                        autocomplete="new-password">
-                  @error('password_confirmation')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-dark btn-block mt-4 rounded-0"
-                  :disabled="this.email_unavailable"
-                >
-                  Sign Up Now
-                </button>
-                <small class="btn btn-block" style="font-size: 13px; color: #aaa; cursor: text;">
-                      Have an account? <a href="{{ route('login') }}" style="text-decoration: none; color: black;">Login</a>
-                </small>
-              </form>
+              </div>
             </div>
           </div>
         </div>

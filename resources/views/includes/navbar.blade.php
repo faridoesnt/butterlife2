@@ -12,19 +12,19 @@
                     <a href="{{ route('home') }}" class="nav-link">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('categories') }}" class="nav-link"><strong>SHOP ALL PRODUCTS</strong></a>
+                    <a href="{{ route('categories') }}" class="nav-link"><strong>KATEGORI</strong></a>
                 </li>
             </ul>
             @guest
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{ route('register') }}" class="nav-link">SIGN UP</a>
+                    <a href="{{ route('register') }}" class="nav-link">DAFTAR</a>
                 </li>
                 <li class="nav-item">
                     <a
                     href="{{ route('login') }}"
                     class="btn btn-dark nav-link px-4 text-white rounded-0"
-                    >SIGN IN</a
+                    >MASUK</a
                 >
                 </li>
             </ul>
@@ -42,11 +42,11 @@
                             {{-- Hi, {{ Auth::user()->name }} --}}
                         </a>
                         <div class="dropdown-menu">
-                            <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                            <a href="{{ route('dashboard') }}" class="dropdown-item">Dasbor</a>
                         <div class="dropdown-divider"></div>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();" class="dropdown-item">Logout
+                                document.getElementById('logout-form').submit();" class="dropdown-item">Keluar
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -71,18 +71,18 @@
                 <!-- Mobile Menu -->
                 <ul class="navbar-nav d-block d-lg-none">
                     <li class="nav-item">
-                        <a href="" class="nav-link text-uppercase"> Hi, {{ Auth::user()->name }} </a>
+                        <a href="" class="nav-link text-uppercase"> Halo, {{ Auth::user()->name }} </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link d-inline-block">DASHBOARD</a>
+                        <a href="{{ route('dashboard') }}" class="nav-link d-inline-block">DASBOR</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('cart') }}" class="nav-link d-inline-block">CART</a>
+                        <a href="{{ route('cart') }}" class="nav-link d-inline-block">KERANJANG</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();" class="nav-link d-inline-block">LOGOUT
+                            document.getElementById('logout-form').submit();" class="nav-link d-inline-block">KELUAR
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

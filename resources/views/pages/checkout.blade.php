@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Checkout Butterlife
+    Checkout - Butterlife
 @endsection
 
 @section('content')
@@ -35,7 +35,7 @@
                             <div class="col-12 col-lg-6">
                                 <div class="row">
                                     <div class="col-12">
-                                        <h2>Shipping Details</h2>
+                                        <h2>Detail Pengiriman</h2>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -48,7 +48,7 @@
                                         <div class="row mb-2">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="adress_one">Adress 1</label>
+                                                    <label for="adress_one">Alamat I</label>
                                                     <input
                                                         type="text"
                                                         class="form-control rounded-0"
@@ -61,7 +61,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="address_two">Adress 2</label>
+                                                    <label for="address_two">Alamat II</label>
                                                     <input
                                                         type="text"
                                                         class="form-control rounded-0"
@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                <label for="provinces_id">Provinces</label>
+                                                <label for="provinces_id">Provinsi</label>
                                                 <select class="form-control provinsi-asal" name="province_origin" required>
                                                     <option selected disabled></option>
                                                     @foreach ($provinces as $province => $value)
@@ -85,7 +85,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                <label for="regencies_id">City</label>
+                                                <label for="regencies_id">Kota</label>
                                                 <select class="form-control kota-asal" name="city_origin" required>
                                                     <option value=""></option>
                                                 </select>
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                <label for="zip_code">Postal Code</label>
+                                                <label for="zip_code">Kode Pos</label>
                                                 <input
                                                     type="text"
                                                     class="form-control rounded-0"
@@ -106,7 +106,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                <label for="country">Country</label>
+                                                <label for="country">Negara</label>
                                                 <input
                                                     type="text"
                                                     class="form-control rounded-0"
@@ -119,7 +119,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                <label for="phone_number">Phone Number</label>
+                                                <label for="phone_number">Nomor HP</label>
                                                 <input
                                                     type="text"
                                                     class="form-control rounded-0"
@@ -157,7 +157,7 @@
                             <div class="col-12 col-lg-6">
                                 <div class="row">
                                     <div class="col-12">
-                                        <h2>Product Details</h2>
+                                        <h2>Detail Produk</h2>
                                     </div>
                                     <div class="col-12 mb-2">
                                         <hr>
@@ -168,10 +168,10 @@
                                         <table class="table table-borderless table-cart">
                                             <thead>
                                                 <tr>
-                                                    <td>Name</td>
-                                                    <td>Size</td>
-                                                    <td class="text-center">Qty</td>
-                                                    <td class="text-center">Product Price</td>
+                                                    <td>Nama</td>
+                                                    <td>Ukuran</td>
+                                                    <td class="text-center">Jumlah</td>
+                                                    <td class="text-center">Harga Produk</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="row" data-aos="fade-up" data-aos-delay="150">
                             <div class="col-12">
-                                <h2>Shipping Options</h2>
+                                <h2>Opsi Pengiriman</h2>
                             </div>
                             <div class="col-12 mb-2">
                                 <hr>
@@ -217,11 +217,11 @@
                             <div class="col-12 col-md-12">
                                 <div class="form-group">
                                     <select class="form-control kurir" name="courier" required>
-                                        <option selected disabled>-- Select Shipping Options --</option>
+                                        <option selected disabled>-- Pilih Opsi Pengiriman --</option>
                                         <option value="jne">JNE</option>
                                         <option value="pos">POS</option>
                                         <option value="tiki">TIKI</option>
-                                        <option value="COD">Cash On Delivery</option>
+                                        <option value="COD">Datang Ke Toko</option>
                                         <option value="GOJEK">Gojek</option>
                                     </select>
                                 </div>
@@ -238,12 +238,12 @@
                             </div>
                             <div class="col-12 col-md-12 mb-5">
                                 <label>&nbsp;</label>
-                                <input type="button" class="btn btn-primary btn-block btn-check rounded-0" value="Check Shipping Price">
+                                <input type="button" class="btn btn-primary btn-block btn-check rounded-0" value="Cek Harga Pengiriman">
                             </div>
                         </div>
                         <div class="row" data-aos="fade-up" data-aos-delay="150">
                             <div class="col-12">
-                                <h2>Payment Information</h2>
+                                <h2>Informasi Pembayaran</h2>
                             </div>
                             <div class="col-12 mb-2">
                                 <hr>
@@ -257,24 +257,24 @@
                             </div> --}}
                             <div class="col-4 col-md-3">
                                 <div class="product-title" name="product_price">Rp. {{ number_format($productPrice ?? 0) }}</div>
-                                <div class="product-subtitle">Total Product Price</div>
+                                <div class="product-subtitle">Total Harga Produk</div>
                             </div> 
                             <div class="col-4 col-md-2">
                                 <input type="hidden" name="shipping_price" id="shipping_price">
                                 <div class="product-title" id="shipping">Rp. 0</div>
-                                <div class="product-subtitle">Shipping Price</div>
+                                <div class="product-subtitle">Harga Pengiriman</div>
                             </div> 
                             <div class="col-4 col-md-6 text-right">
                                 <input type="hidden" name="total_price" id="total_price">
                                 <div class="product-title text-success" id="total">Rp. {{ number_format($productPrice ?? 0) }}</div>
-                                <div class="product-subtitle">Total Price</div>
+                                <div class="product-subtitle">Total Harga</div>
                             </div>
                             <div class="col-12">
                                 <div id="service"></div>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-dark mt-4 px-4 btn-block rounded-0">
-                                Checkout Now
+                                Checkout
                                 </button>
                             </div>
                         </div>
@@ -286,7 +286,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 text-center p-5 mt-5" data-aos="fade-up" data-aos-delay="100">
-                            <h1>No Data Found.</h1>
+                            <h1>Tidak ada data.</h1>
                         </div>
                     </div>
                 </div>
@@ -508,7 +508,7 @@
                                 var html = "";
                                 html += `
                                         <div class="col-12 text-center mt-2">
-                                            After successful payment, please go directly to the store with the transaction code
+                                            Setelah pembayaran berhasil, silahkan datang ke toko dengan menunjukkan kode transaksi.
                                         </div>`
                                 $('#ongkir').html(html);
                             }
@@ -529,8 +529,9 @@
                                     var html = "";
                                     html += `
                                             <div class="col-12 text-center mt-2">
-                                                After successful payment, we will send a message to you via WhatsApp to inform you about the Gojek courier.<br>
-                                                <strong>Note: Gojek courier costs are the responsibility of the buyer</strong>
+                                                Setelah pembayaran berhasil, kami akan mengirimkan pesan kepada Anda melalui WhatsApp untuk menginformasikan tentang kurir Gojek.<br>
+                                                <strong>Catatan : Biaya kurir Gojek di tanggung pembeli.<br></strong>
+                                                <div class="text-warning"><strong>Peringatan : Maksimal 15km dari toko.</strong></div>
                                             </div>`
                                     $('#ongkir').html(html);
                                 }

@@ -31,47 +31,47 @@
               href="{{ route('admin-dashboard') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin')) ? 'active' : '' }}"
             >
-              Dashboard
+              Dasbor
             </a>
             <a
               href="{{ route('product.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product')) ? 'active' : '' }}"
             >
-              Products
+              Produk
             </a>
             <a
               href="{{ route('product-quantity.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product-quantity*')) ? 'active' : '' }}"
             >
-              Products Quantity
+              Kuantitas Produk
             </a>
             <a
               href="{{ route('product-gallery.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product-gallery*')) ? 'active' : '' }}"
             >
-              Products Gallery
+              Foto Produk
             </a>
             <a
               href="{{ route('category.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/category*')) ? 'active' : '' }}"
             >
-              Categories
+              Kategori
             </a>
             <a
               href="{{ route('transactions.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/transactions*')) ? 'active' : '' }}"
             >
-              Transactions
+              Transaksi
             </a>
             <a
               href="{{ route('user.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }}"
             >
-              Users
+              Pengguna
             </a>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action">Sign Out
+                document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action">Keluar
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
@@ -116,12 +116,12 @@
                         alt=""
                         class="rounded-circle mr-2 profile-picture"
                       />
-                      Hi, {{ Auth::user()->name }}
+                      Halo, {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu">
                       <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="dropdown-item">Logout
+                        document.getElementById('logout-form').submit();" class="dropdown-item">Keluar
                       </a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf
@@ -133,12 +133,12 @@
                 <!-- Mobile Menu -->
                 <ul class="navbar-nav d-block d-lg-none">
                   <li class="nav-item">
-                    <a href="" class="nav-link"> Hi, {{ Auth::user()->name }} </a>
+                    <a href="" class="nav-link"> Halo, {{ Auth::user()->name }} </a>
                   </li>
                   <li class="nav-item">
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="dropdown-item">Logout
+                        document.getElementById('logout-form').submit();" class="dropdown-item">Keluar
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf

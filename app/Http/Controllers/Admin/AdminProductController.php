@@ -37,7 +37,7 @@ class AdminProductController extends Controller
                             <form action="' . route('product-status',  $item->id) .'" method="POST">
                                 '. csrf_field() . '
                                 <button type="submit" class="btn btn-danger mr-1 mb-1">
-                                    Nonactive
+                                    Nonaktifkan
                                 </button>
                             </form>
                         </div>
@@ -46,16 +46,16 @@ class AdminProductController extends Controller
                                 <button class="btn btn-dark dropdown-toggle mr-1 mb-1"
                                         type="button"
                                         data-toggle="dropdown">
-                                    Action
+                                    Aksi
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="' . route('product.edit', $item->id) . '">
-                                        Edit
+                                        Sunting
                                     </a>
                                     <form action="' . route('product.destroy',  $item->id) .'" method="POST">
                                         '. method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
-                                            Delete
+                                            Hapus
                                         </button>
                                     </form>
                                 </div>
@@ -68,7 +68,7 @@ class AdminProductController extends Controller
                             <form action="' . route('product-status',  $item->id) .'" method="POST">
                                 '. csrf_field() . '
                                 <button type="submit" class="btn btn-success mr-1 mb-1">
-                                    Set Active
+                                    Aktifkan
                                 </button>
                             </form>
                         </div>
@@ -77,16 +77,16 @@ class AdminProductController extends Controller
                                 <button class="btn btn-dark dropdown-toggle mr-1 mb-1"
                                         type="button"
                                         data-toggle="dropdown">
-                                    Action
+                                    Aksi
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="' . route('product.edit', $item->id) . '">
-                                        Edit
+                                        Sunting
                                     </a>
                                     <form action="' . route('product.destroy',  $item->id) .'" method="POST">
                                         '. method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
-                                            Delete
+                                            Hapus
                                         </button>
                                     </form>
                                 </div>

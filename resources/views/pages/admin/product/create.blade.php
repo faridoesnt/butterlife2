@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Product Butterlife
+    Admin - Produk - Butterlife
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
         <div class="container-fluid">
             <div class="dashboard-heading">
-            <h2 class="dashboard-title">Product</h2>
-            <p class="dashboard-subtitle">Create New Product</p>
+            <h2 class="dashboard-title">Produk</h2>
+            <p class="dashboard-subtitle">Buat Produk Baru</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -33,7 +33,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Name<i class="text-danger">*</i></label>
+                                                <label>Nama Produk<i class="text-danger">*</i></label>
                                                 <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
                                             </div>
                                         </div>
@@ -49,9 +49,9 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Category<i class="text-danger">*</i></label>
+                                                <label>Kategori<i class="text-danger">*</i></label>
                                                 <select name="categories_id" class="form-control" required>
-                                                    <option disabled selected>Select Category</option>
+                                                    <option disabled selected>Pilih Kategori</option>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
@@ -60,13 +60,13 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Price<i class="text-danger">*</i></label>
+                                                <label>Harga<i class="text-danger">*</i></label>
                                                 <input type="text" id="rupiah" name="price" class="form-control" value="{{ old('price') }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Description<i class="text-danger">*</i></label>
+                                                <label>Deskripsi Produk<i class="text-danger">*</i></label>
                                                 <textarea name="description" id="editor">{{ old('description') }}</textarea>
                                             </div>
                                         </div>
@@ -74,8 +74,8 @@
                                             <div class="form-group">
                                                 <label>Status<i class="text-danger">*</i></label>
                                                 <select name="status" required class="form-control">
-                                                    <option value="Aktif">Active</option>
-                                                    <option value="Nonaktif">Nonactive</option>
+                                                    <option value="Aktif">Aktif</option>
+                                                    <option value="Nonaktif">Nonaktif</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                     <div class="row">
                                         <div class="col text-right">
                                             <button type="submit" class="btn btn-dark px-5">
-                                                Save Now
+                                                Simpan
                                             </button>
                                         </div>
                                     </div>

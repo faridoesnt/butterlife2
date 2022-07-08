@@ -76,7 +76,7 @@
                                                 <div class="form-group">
                                                 <label for="provinces_id">Provinsi</label>
                                                 <select class="form-control provinsi-asal" name="province_origin" required>
-                                                    <option selected disabled></option>
+                                                    <option selected disabled>-- Pilih Provinsi --</option>
                                                     @foreach ($provinces as $province => $value)
                                                         <option value="{{ $province  }}">{{ $value }}</option>
                                                     @endforeach
@@ -86,8 +86,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                 <label for="regencies_id">Kota</label>
-                                                <select class="form-control kota-asal" name="city_origin" required>
-                                                    <option value=""></option>
+                                                <select class="form-control kota-asal" id="select-kota" name="city_origin" required>
+                                                    <option selected disabled>-- Pilih Kota --</option>
                                                 </select>
                                                 </div>
                                             </div>
@@ -216,7 +216,7 @@
                         <div class="row"  data-aos="fade-up" data-aos-delay="150">
                             <div class="col-12 col-md-12">
                                 <div class="form-group">
-                                    <select class="form-control kurir" name="courier" required>
+                                    <select class="form-control kurir" id="select_kurir" name="courier" required>
                                         <option selected disabled>-- Pilih Opsi Pengiriman --</option>
                                         <option value="jne">JNE</option>
                                         <option value="pos">POS</option>
@@ -238,7 +238,7 @@
                             </div>
                             <div class="col-12 col-md-12 mb-5">
                                 <label>&nbsp;</label>
-                                <input type="button" class="btn btn-primary btn-block btn-check rounded-0" value="Cek Harga Pengiriman">
+                                <input type="button" id="btn-cek-ongkir" class="btn btn-primary btn-block rounded-0" value="Cek Harga Pengiriman">
                             </div>
                         </div>
                         <div class="row" data-aos="fade-up" data-aos-delay="150">
@@ -251,10 +251,6 @@
                         </div>
                         <div class="row" data-aos="fade-up" data-aos-delay="150">
                             <input type="hidden" name="product_price" id="product_price" value="{{ $productPrice }}">
-                            {{-- <div class="col-4 col-md-2">
-                                <div class="product-title">Rp. 0</div>
-                                <div class="product-subtitle">Country Text</div>
-                            </div> --}}
                             <div class="col-4 col-md-3">
                                 <div class="product-title" name="product_price">Rp. {{ number_format($productPrice ?? 0) }}</div>
                                 <div class="product-subtitle">Total Harga Produk</div>
@@ -273,7 +269,7 @@
                                 <div id="service"></div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-dark mt-4 px-4 btn-block rounded-0">
+                                <button type="submit" id="btn-checkout" class="btn btn-dark mt-4 px-4 btn-block rounded-0">
                                 Checkout
                                 </button>
                             </div>
@@ -300,10 +296,18 @@
     <script src="https://unpkg.com/vue-toasted"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function(){
+
+            document.getElementById("select-kota").disabled=true
+            document.getElementById("select_kurir").disabled=true
+            document.getElementById("btn-cek-ongkir").disabled=true
+            document.getElementById("btn-checkout").disabled=true
+
             //ajax select kota asal
             $('select[name="province_origin"]').on('change', function () {
+                document.getElementById("select-kota").disabled=false
                 let provindeId = $(this).val();
                 if (provindeId) {
                     jQuery.ajax({
@@ -314,7 +318,7 @@
                         dataType: "json",
                         success: function (response) {
                             $('select[name="city_origin"]').empty();
-                            // $('select[name="city_origin"]').append('<option value="">-- pilih kota asal --</option>');
+                            $('select[name="city_origin"]').append('<option selected disabled>-- Pilih Kota --</option>');
                             $.each(response, function (key, value) {
                                 $('select[name="city_origin"]').append('<option value="' + key + '">' + value + '</option>');
                             });
@@ -325,31 +329,17 @@
                 }
             });
 
-            //ajax select kota tujuan
-            $('select[name="province_destination"]').on('change', function () {
-                let provindeId = $(this).val();
-                if (provindeId) {
-                    jQuery.ajax({
-                        url: '/cities/'+provindeId,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (response) {
-                            $('select[name="city_destination"]').empty();
-                            // $('select[name="city_destination"]').append('<option value="">-- pilih kota tujuan --</option>');
-                            $.each(response, function (key, value) {
-                                $('select[name="city_destination"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    $('select[name="city_destination"]').append('<option value="">-- pilih kota tujuan --</option>');
-                }
+            $('select[name="city_origin"]').on('change', function () {
+                document.getElementById("select_kurir").disabled=false
             });
+
 
             //ajax check ongkir
             let isProcessing     = false;
             $('.kurir').change(function (e) {
                 e.preventDefault();
+                document.getElementById("btn-cek-ongkir").disabled = false
+                // document.getElementById("btn-checkout").disabled=false
 
                 let token            = $("meta[name='csrf-token']").attr("content");
                 let city_origin      = $('select[name=city_origin]').val();
@@ -363,7 +353,18 @@
 
                 if(courier == 'jne')
                 {
-                    $('.btn-check').show();
+                    $('#btn-cek-ongkir').show();
+
+                    document.getElementById("btn-checkout").disabled=true
+
+                    let shipping_price = 0
+                    let product_price = $('#product_price').val();
+
+                    document.getElementById("shipping").innerHTML = shipping_price;
+                    document.getElementById("shipping_price").value = shipping_price;
+                    document.getElementById("total_price").value = product_price;
+                    document.getElementById("total").innerHTML = product_price;
+
                     isProcessing = true;
                     jQuery.ajax({
                         url: '/ongkir',
@@ -387,17 +388,28 @@
                                             <div class="col-md-4">
                                                 <div class="card shadow-sm">
                                                     <div class="card-body">
-                                                        <input type="radio" name="cost" id="cost" value="${value.cost[0].value}" required>
-                                                        <input type="radio" name="service" value="${value.service}" required>
+                                                        <input type="radio" name="cost" id="cost" class="cost" value="${value.cost[0].value}" required>
                                                         <label for="cost">
                                                             ${value.service}
                                                         </label>
+                                                        <input type="radio" class="service d-none" name="service" data-index="0" value="${value.service}" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             `;
                                     html += '</div>'
                                     $('#ongkir').html(html);
+
+                                    jQuery(document).ready(function () {
+            
+                                        jQuery('.cost').on('click',function(){
+                                        
+                                            var indx = jQuery(this).index('.cost');
+                                            
+                                            jQuery('.service')[indx].click();
+                                        })
+                                    });
+
                                 });
                             }
                         }
@@ -407,7 +419,18 @@
                 {
                     if(courier == 'pos')
                     {
-                        $('.btn-check').show();
+                        $('#btn-cek-ongkir').show();
+
+                        document.getElementById("btn-checkout").disabled=true
+
+                        let shipping_price = 0
+                        let product_price = $('#product_price').val();
+
+                        document.getElementById("shipping").innerHTML = shipping_price;
+                        document.getElementById("shipping_price").value = shipping_price;
+                        document.getElementById("total_price").value = product_price;
+                        document.getElementById("total").innerHTML = product_price;
+
                         isProcessing = true;
                         jQuery.ajax({
                             url: '/ongkir',
@@ -431,17 +454,28 @@
                                                 <div class="col-md-4">
                                                     <div class="card shadow-sm">
                                                         <div class="card-body">
-                                                            <input type="radio" name="cost" id="cost" value="${value.cost[0].value}" required>
-                                                            <input type="radio" name="service" value="${value.service}" required>
+                                                            <input type="radio" name="cost" id="cost" class="cost" value="${value.cost[0].value}" required>
                                                             <label for="cost">
                                                                 ${value.service}
                                                             </label>
+                                                            <input type="radio" class="service d-none" name="service" data-index="0" value="${value.service}" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 `;
                                         html += '</div>'
                                         $('#ongkir').html(html);
+                                        
+                                        jQuery(document).ready(function () {
+            
+                                            jQuery('.cost').on('click',function(){
+                                            
+                                                var indx = jQuery(this).index('.cost');
+                                                
+                                                jQuery('.service')[indx].click();
+                                            })
+                                        });
+                                        
                                     });
                                 }
                             }
@@ -451,7 +485,19 @@
                     {
                         if(courier == 'tiki')
                         {
-                            $('.btn-check').show();
+                            $('#btn-cek-ongkir').show();
+
+                            document.getElementById("btn-checkout").disabled=true
+
+                            let shipping_price = 0
+                            let product_price = $('#product_price').val();
+
+                            document.getElementById("shipping").innerHTML = shipping_price;
+                            document.getElementById("shipping_price").value = shipping_price;
+                            document.getElementById("total_price").value = product_price;
+                            document.getElementById("total").innerHTML = product_price;
+
+
                             isProcessing = true;
                             jQuery.ajax({
                                 url: '/ongkir',
@@ -475,17 +521,28 @@
                                                     <div class="col-md-4">
                                                         <div class="card shadow-sm">
                                                             <div class="card-body">
-                                                                <input type="radio" name="cost" id="cost" value="${value.cost[0].value}" required>
-                                                                <input type="radio" name="service" value="${value.service}" required>
+                                                                <input type="radio" name="cost" id="cost" class="cost" value="${value.cost[0].value}" required>
                                                                 <label for="cost">
                                                                     ${value.service}
                                                                 </label>
+                                                                <input type="radio" class="service d-none" name="service" data-index="0" value="${value.service}" required>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     `;
                                             html += '</div>'
                                             $('#ongkir').html(html);
+
+                                            jQuery(document).ready(function () {
+            
+                                                jQuery('.cost').on('click',function(){
+                                                
+                                                    var indx = jQuery(this).index('.cost');
+                                                    
+                                                    jQuery('.service')[indx].click();
+                                                })
+                                            });
+
                                         });
                                     }
                                 }
@@ -498,11 +555,13 @@
                                 let shipping_price = 0
                                 let product_price = $('#product_price').val();
 
+                                document.getElementById("btn-checkout").disabled=false
+
                                 document.getElementById("shipping").innerHTML = shipping_price;
                                 document.getElementById("shipping_price").value = shipping_price;
                                 document.getElementById("total_price").value = product_price;
                                 document.getElementById("total").innerHTML = product_price;
-                                $('.btn-check').hide();
+                                $('#btn-cek-ongkir').hide();
                                 $('#ongkir').empty();
 
                                 var html = "";
@@ -519,11 +578,13 @@
                                     let shipping_price = 0
                                     let product_price = $('#product_price').val();
 
+                                    document.getElementById("btn-checkout").disabled=false
+
                                     document.getElementById("shipping").innerHTML = shipping_price;
                                     document.getElementById("shipping_price").value = shipping_price;
                                     document.getElementById("total_price").value = product_price;
                                     document.getElementById("total").innerHTML = product_price;
-                                    $('.btn-check').hide();
+                                    $('#btn-cek-ongkir').hide();
                                     $('#ongkir').empty();
 
                                     var html = "";
@@ -541,7 +602,9 @@
                 }
             });
 
-            $("input[type='button']").click(function(){
+            $("#btn-cek-ongkir").click(function(){
+                document.getElementById("btn-checkout").disabled=false
+
                 var product_price = $("input[name='product_price']").val();
                 var shipping_price = $("input[name='cost']:checked").val();
                 var total_price = parseInt(product_price) + parseInt(shipping_price);
@@ -555,42 +618,5 @@
             });
 
         });
-    </script>
-    <script>
-      var locations = new Vue({
-        el: "#locations",
-        mounted() {
-          AOS.init();
-          this.getProvincesData();
-        },
-        data: {
-          provinces: null,
-          regencies: null,
-          provinces_id: null,
-          regencies_id: null,
-        },
-        methods: {
-          getProvincesData(){
-            var self = this;
-            axios.get('{{ route('api-provinces') }}')
-                  .then(function(response){
-                    self.provinces = response.data;
-                  })
-          },
-          getRegenciesData(){
-            var self = this;
-            axios.get('{{ url('api/regencies') }}/' + self.provinces_id)
-                  .then(function(response){
-                    self.regencies = response.data;
-                  })
-          },
-        },
-        watch: {
-          provinces_id: function(val, oldVal) {
-            this.regencies_id = null;
-            this.getRegenciesData();
-          }
-        },
-      });
     </script>
 @endpush

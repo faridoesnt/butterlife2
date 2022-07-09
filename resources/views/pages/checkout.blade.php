@@ -233,12 +233,9 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="row" id="ongkir">
+                                <div class="row plans" id="ongkir">
+                                    
                                 </div>
-                            </div>
-                            <div class="col-12 col-md-12 mb-5">
-                                <label>&nbsp;</label>
-                                <input type="button" id="btn-cek-ongkir" class="btn btn-primary btn-block rounded-0" value="Cek Harga Pengiriman">
                             </div>
                         </div>
                         <div class="row" data-aos="fade-up" data-aos-delay="150">
@@ -302,7 +299,6 @@
 
             document.getElementById("select-kota").disabled=true
             document.getElementById("select_kurir").disabled=true
-            document.getElementById("btn-cek-ongkir").disabled=true
             document.getElementById("btn-checkout").disabled=true
 
             //ajax select kota asal
@@ -338,7 +334,6 @@
             let isProcessing     = false;
             $('.kurir').change(function (e) {
                 e.preventDefault();
-                document.getElementById("btn-cek-ongkir").disabled = false
                 // document.getElementById("btn-checkout").disabled=false
 
                 let token            = $("meta[name='csrf-token']").attr("content");
@@ -353,8 +348,6 @@
 
                 if(courier == 'jne')
                 {
-                    $('#btn-cek-ongkir').show();
-
                     document.getElementById("btn-checkout").disabled=true
 
                     let shipping_price = 0
@@ -385,19 +378,17 @@
                                 var html = "";
                                 $.each(response[0]['costs'], function (key, value) {
                                     html += `
-                                            <div class="col-md-4">
-                                                <div class="card shadow-sm">
-                                                    <div class="card-body">
-                                                        <input type="radio" name="cost" id="cost" class="cost" value="${value.cost[0].value}" required>
-                                                        <label for="cost">
-                                                            ${value.service}
-                                                        </label>
-                                                        <input type="radio" class="service d-none" name="service" data-index="0" value="${value.service}" required>
-                                                    </div>
+                                            <label class="col-12 col-md-6 col-lg-4 plan basic-plan" for="${value.service}">
+                                                <input type="radio" name="cost" id="${value.service}" class="cost" value="${value.cost[0].value}" required>
+                                                <input type="radio" class="service" name="service" data-index="0" value="${value.service}" required>
+                                                <div class="plan-content">
+                                                    <div class="plan-details">
+                                                        <span>${value.service}</span>
+                                                        <p>${value.description}<br>Rp. ${value.cost[0].value}<br>${value.cost[0].etd} Hari</p>
+                                                    </div>    
                                                 </div>
-                                            </div>
+                                            </label>
                                             `;
-                                    html += '</div>'
                                     $('#ongkir').html(html);
 
                                     jQuery(document).ready(function () {
@@ -407,6 +398,19 @@
                                             var indx = jQuery(this).index('.cost');
                                             
                                             jQuery('.service')[indx].click();
+
+                                            document.getElementById("btn-checkout").disabled=false
+
+                                            var product_price = $("input[name='product_price']").val();
+                                            var shipping_price = $("input[name='cost']:checked").val();
+                                            var total_price = parseInt(product_price) + parseInt(shipping_price);
+
+                                            if(total_price){
+                                                document.getElementById("shipping").innerHTML = shipping_price;
+                                                document.getElementById("shipping_price").value = shipping_price;
+                                                document.getElementById("total").innerHTML = total_price;
+                                                document.getElementById("total_price").value = total_price;
+                                            }
                                         })
                                     });
 
@@ -419,7 +423,6 @@
                 {
                     if(courier == 'pos')
                     {
-                        $('#btn-cek-ongkir').show();
 
                         document.getElementById("btn-checkout").disabled=true
 
@@ -451,21 +454,19 @@
                                     var html = "";
                                     $.each(response[0]['costs'], function (key, value) {
                                         html += `
-                                                <div class="col-md-4">
-                                                    <div class="card shadow-sm">
-                                                        <div class="card-body">
-                                                            <input type="radio" name="cost" id="cost" class="cost" value="${value.cost[0].value}" required>
-                                                            <label for="cost">
-                                                                ${value.service}
-                                                            </label>
-                                                            <input type="radio" class="service d-none" name="service" data-index="0" value="${value.service}" required>
-                                                        </div>
-                                                    </div>
+                                            <label class="col-12 col-md-6 col-lg-4 plan basic-plan" for="${value.service}">
+                                                <input type="radio" name="cost" id="${value.service}" class="cost" value="${value.cost[0].value}" required>
+                                                <input type="radio" class="service" name="service" data-index="0" value="${value.service}" required>
+                                                <div class="plan-content">
+                                                    <div class="plan-details">
+                                                        <span>${value.service}</span>
+                                                        <p>${value.description}<br>Rp. ${value.cost[0].value}<br>${value.cost[0].etd} Hari</p>
+                                                    </div>    
                                                 </div>
-                                                `;
-                                        html += '</div>'
+                                            </label>
+                                            `;
                                         $('#ongkir').html(html);
-                                        
+
                                         jQuery(document).ready(function () {
             
                                             jQuery('.cost').on('click',function(){
@@ -473,9 +474,22 @@
                                                 var indx = jQuery(this).index('.cost');
                                                 
                                                 jQuery('.service')[indx].click();
+
+                                                document.getElementById("btn-checkout").disabled=false
+
+                                                var product_price = $("input[name='product_price']").val();
+                                                var shipping_price = $("input[name='cost']:checked").val();
+                                                var total_price = parseInt(product_price) + parseInt(shipping_price);
+
+                                                if(total_price){
+                                                    document.getElementById("shipping").innerHTML = shipping_price;
+                                                    document.getElementById("shipping_price").value = shipping_price;
+                                                    document.getElementById("total").innerHTML = total_price;
+                                                    document.getElementById("total_price").value = total_price;
+                                                }
                                             })
                                         });
-                                        
+
                                     });
                                 }
                             }
@@ -485,7 +499,6 @@
                     {
                         if(courier == 'tiki')
                         {
-                            $('#btn-cek-ongkir').show();
 
                             document.getElementById("btn-checkout").disabled=true
 
@@ -518,28 +531,39 @@
                                         var html = "";
                                         $.each(response[0]['costs'], function (key, value) {
                                             html += `
-                                                    <div class="col-md-4">
-                                                        <div class="card shadow-sm">
-                                                            <div class="card-body">
-                                                                <input type="radio" name="cost" id="cost" class="cost" value="${value.cost[0].value}" required>
-                                                                <label for="cost">
-                                                                    ${value.service}
-                                                                </label>
-                                                                <input type="radio" class="service d-none" name="service" data-index="0" value="${value.service}" required>
-                                                            </div>
-                                                        </div>
+                                                <label class="col-12 col-md-6 col-lg-4 plan basic-plan" for="${value.service}">
+                                                    <input type="radio" name="cost" id="${value.service}" class="cost" value="${value.cost[0].value}" required>
+                                                    <input type="radio" class="service" name="service" data-index="0" value="${value.service}" required>
+                                                    <div class="plan-content">
+                                                        <div class="plan-details">
+                                                            <span>${value.service}</span>
+                                                            <p>${value.description}<br>Rp. ${value.cost[0].value}<br>${value.cost[0].etd} Hari</p>
+                                                        </div>    
                                                     </div>
-                                                    `;
-                                            html += '</div>'
+                                                </label>
+                                                `;
                                             $('#ongkir').html(html);
 
                                             jQuery(document).ready(function () {
-            
+                
                                                 jQuery('.cost').on('click',function(){
                                                 
                                                     var indx = jQuery(this).index('.cost');
                                                     
                                                     jQuery('.service')[indx].click();
+
+                                                    document.getElementById("btn-checkout").disabled=false
+
+                                                    var product_price = $("input[name='product_price']").val();
+                                                    var shipping_price = $("input[name='cost']:checked").val();
+                                                    var total_price = parseInt(product_price) + parseInt(shipping_price);
+
+                                                    if(total_price){
+                                                        document.getElementById("shipping").innerHTML = shipping_price;
+                                                        document.getElementById("shipping_price").value = shipping_price;
+                                                        document.getElementById("total").innerHTML = total_price;
+                                                        document.getElementById("total_price").value = total_price;
+                                                    }
                                                 })
                                             });
 
@@ -561,7 +585,6 @@
                                 document.getElementById("shipping_price").value = shipping_price;
                                 document.getElementById("total_price").value = product_price;
                                 document.getElementById("total").innerHTML = product_price;
-                                $('#btn-cek-ongkir').hide();
                                 $('#ongkir').empty();
 
                                 var html = "";
@@ -584,7 +607,6 @@
                                     document.getElementById("shipping_price").value = shipping_price;
                                     document.getElementById("total_price").value = product_price;
                                     document.getElementById("total").innerHTML = product_price;
-                                    $('#btn-cek-ongkir').hide();
                                     $('#ongkir').empty();
 
                                     var html = "";
@@ -599,21 +621,6 @@
                             }
                         }
                     }
-                }
-            });
-
-            $("#btn-cek-ongkir").click(function(){
-                document.getElementById("btn-checkout").disabled=false
-
-                var product_price = $("input[name='product_price']").val();
-                var shipping_price = $("input[name='cost']:checked").val();
-                var total_price = parseInt(product_price) + parseInt(shipping_price);
-
-                if(total_price){
-                    document.getElementById("shipping").innerHTML = shipping_price;
-                    document.getElementById("shipping_price").value = shipping_price;
-                    document.getElementById("total").innerHTML = total_price;
-                    document.getElementById("total_price").value = total_price;
                 }
             });
 

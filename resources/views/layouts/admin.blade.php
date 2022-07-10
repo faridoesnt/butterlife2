@@ -112,7 +112,7 @@
                       data-toggle="dropdown"
                     >
                       <img
-                        src="/images/user_pc.png"
+                        src="{{ Avatar::create(Auth::user()->name)->setBackground('#454545')->toBase64() }}"
                         alt=""
                         class="rounded-circle mr-2 profile-picture"
                       />

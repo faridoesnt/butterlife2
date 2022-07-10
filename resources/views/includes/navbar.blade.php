@@ -35,11 +35,11 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
                             <img
-                                src="/images/user_pc.png"
+                                src="{{ Avatar::create(Auth::user()->name)->setBackground('#454545')->toBase64() }}"
                                 alt=""
                                 class="rounded-circle mr-2 profile-picture"
                             />
-                            {{-- Hi, {{ Auth::user()->name }} --}}
+                            Hi, {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
                             <a href="{{ route('dashboard') }}" class="dropdown-item">Dasbor</a>

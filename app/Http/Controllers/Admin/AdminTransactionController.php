@@ -142,6 +142,6 @@ class AdminTransactionController extends Controller
         $date = Carbon::now();
         $date2 = Carbon::parse($date)->format('F Y');
 
-        return Excel::download(new TransactionExport, 'butterlife '. $date2 .'.xlsx');
+        return Excel::download(new TransactionExport, 'Butterlife '. $date2 .'.xlsx');
     }
 }

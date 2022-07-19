@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use Carbon\Carbon;
 use App\Models\TransactionDetail;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -18,6 +19,7 @@ class TransactionExport implements FromCollection, WithHeadings, ShouldAutoSize,
 
     public function collection()
     {
+
         return TransactionDetail::select(
                                         'products.name',
                                         'transaction_details.size',
@@ -31,7 +33,8 @@ class TransactionExport implements FromCollection, WithHeadings, ShouldAutoSize,
                                     )
                                     ->join('transactions', 'transactions.id', '=', 'transaction_details.transactions_id')
                                     ->join('products', 'products.id', '=', 'transaction_details.products_id')
-                                    // ->where('transactions.transaction_status', 'SUCCESS')
+                                    ->where('transactions.transaction_status', 'SUCCESS')
+                                    ->whereMonth('transactions.created_at', Carbon::now()->month)
                                     ->get();
     }
 

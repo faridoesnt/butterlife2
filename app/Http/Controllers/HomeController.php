@@ -29,4 +29,14 @@ class HomeController extends Controller
 
         return response()->view($view, $data);
     }
+
+    public function about()
+    {
+        return view('pages.about');
+    }
+
+    public function contact()
+    {
+        return view('pages.contact');
+    }
 }

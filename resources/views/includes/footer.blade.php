@@ -6,10 +6,10 @@
                     <strong>INFORMASI</strong>
                 </div>
                 <div class="row">
-                    <a href="">TENTANG KAMI</a>
+                    <a href="{{ route('about') }}">TENTANG KAMI</a>
                 </div>
                 <div class="row">
-                    <a href="">KONTAK KAMI</a>
+                    <a href="{{ route('contact') }}">KONTAK KAMI</a>
                 </div>
             </div>
             {{-- <div class="col-6 col-md-6 col-lg-6">

@@ -36,6 +36,12 @@ use App\Http\Controllers\Admin\AdminProductQuantityController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// About US
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+
+// Contact
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
 // Category
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/categories/{id}', [CategoryController::class, 'detail'])->name('categories-detail');

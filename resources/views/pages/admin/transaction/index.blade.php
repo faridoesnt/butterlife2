@@ -17,6 +17,7 @@
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-md-12">
+                        <a class="btn btn-success mb-3" href="{{ route('export') }}">Report Transaksi</a>
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">

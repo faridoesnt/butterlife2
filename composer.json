@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "laravolt/avatar": "^4.1",
+        "maatwebsite/excel": "^3.1",
         "midtrans/midtrans-php": "^2.5",
         "sentry/sentry-laravel": "^2.12",
         "yajra/laravel-datatables-oracle": "~9.0"

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Models\TransactionDetail;
 
+use App\Exports\TransactionExport;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
 class AdminTransactionController extends Controller
@@ -132,5 +135,13 @@ class AdminTransactionController extends Controller
         $item->update($data);
 
         return redirect()->route('transactions.index');
+    }
+
+    public function export()
+    {
+        $date = Carbon::now();
+        $date2 = Carbon::parse($date)->format('F Y');
+
+        return Excel::download(new TransactionExport, 'butterlife '. $date2 .'.xlsx');
     }
 }

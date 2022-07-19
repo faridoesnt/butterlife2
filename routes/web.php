@@ -91,6 +91,7 @@ Route::prefix('admin')
         Route::post('/category/status/{id}', [AdminCategoryController::class, 'status'])->name('category-status');
 
         Route::resource('transactions', AdminTransactionController::class);
+        Route::get('export', [AdminTransactionController::class, 'export'])->name('export');
         
         Route::resource('user', AdminUserController::class);
         
@@ -101,6 +102,7 @@ Route::prefix('admin')
 
         Route::resource('product-quantity', AdminProductQuantityController::class);
         Route::post('/product/quantity/status/{id}', [AdminProductQuantityController::class, 'status'])->name('product-quantity-status');
+        
 });
 
 Auth::routes();

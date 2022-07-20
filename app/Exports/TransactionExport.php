@@ -26,7 +26,6 @@ class TransactionExport implements FromCollection, WithHeadings, ShouldAutoSize,
                                         'transaction_details.qty',
                                         'transaction_details.price',
                                         'transaction_details.total_price',
-                                        'transactions.shipping_price',
                                         'transaction_details.courier',
                                         'transaction_details.service'
                                     )
@@ -45,7 +44,6 @@ class TransactionExport implements FromCollection, WithHeadings, ShouldAutoSize,
             'Jumlah',
             'Harga Produk',
             'Total Harga Produk',
-            'Harga Pengiriman',
             'Kurir',
             'Service'
         ];

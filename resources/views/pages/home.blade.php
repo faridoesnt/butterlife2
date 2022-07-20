@@ -36,7 +36,7 @@
         <section class="store-new-products mt-5">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12" data-aos="">
+                    <div class="col-12" data-aos="fade-up">
                         <h1 class="mb-3">PRODUK TERBARU</h1>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     @forelse ($products as $product)
                         <div
                         class="col-12 col-md-4 col-lg-3"
-                        data-aos=""
+                        data-aos="fade-up"
                         data-aos-delay="{{ $incrementProduct += 100 }}"
                         >
                             <a href="{{ route('detail', $product->slug) }}" class="component-products d-block">

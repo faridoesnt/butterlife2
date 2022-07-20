@@ -26,8 +26,6 @@ class TransactionExport implements FromCollection, WithHeadings, ShouldAutoSize,
                                         'transaction_details.qty',
                                         'transaction_details.price',
                                         'transaction_details.total_price',
-                                        'transaction_details.courier',
-                                        'transaction_details.service'
                                     )
                                     ->join('transactions', 'transactions.id', '=', 'transaction_details.transactions_id')
                                     ->join('products', 'products.id', '=', 'transaction_details.products_id')
@@ -43,9 +41,7 @@ class TransactionExport implements FromCollection, WithHeadings, ShouldAutoSize,
             'Ukuran',
             'Jumlah',
             'Harga Produk',
-            'Total Harga Produk',
-            'Kurir',
-            'Service'
+            'Total Harga Produk'
         ];
     }
 

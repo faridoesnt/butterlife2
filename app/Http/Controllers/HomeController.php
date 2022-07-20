@@ -20,7 +20,7 @@ class HomeController extends Controller
         $data = [];
 
         $categories = Category::take(6)->where('status', 'Aktif')->get();
-        $products   = Product::with(['galleries'])->take(8)->where('status', 'Aktif')->get();
+        $products   = Product::with(['galleries'])->take(8)->where('status', 'Aktif')->orderBy('created_at', 'DESC')->get();
 
         $data['categories'] = $categories;
         $data['products']   = $products;

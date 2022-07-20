@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="product-title">Total Harga Produk</div>
-                                <div class="product-subtitle">Rp. {{ number_format($transaction_data->transaction->product_price) }}</div>
+                                <div class="product-subtitle">Rp. {{ number_format($transaction_data->total_price) }}</div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="product-title">Harga Pengiriman</div>

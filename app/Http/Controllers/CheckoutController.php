@@ -109,6 +109,7 @@ class CheckoutController extends Controller
                 'code'              => $trx,
                 'size'              => $cart->size,
                 'qty'               => $cart->qty,
+                'total_price'       => $cart->product->price * $cart->qty,
                 'courier'           => $request->courier ?? '',
                 'service'           => $request->service,
             ]);

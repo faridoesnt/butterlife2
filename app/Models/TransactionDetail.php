@@ -18,6 +18,7 @@ class TransactionDetail extends Model
         'code',
         'size',
         'qty',
+        'total_price',
         'courier',
         'service',
     ];

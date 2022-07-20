@@ -40,7 +40,7 @@ class AdminTransactionController extends Controller
                     return $item->price;
                 })
                 ->addColumn('total_product_price', function($item) {
-                    return $item->transaction->product_price;
+                    return $item->total_price;
                 })
                 ->addColumn('shipping_price', function($item) {
                     return $item->transaction->shipping_price;

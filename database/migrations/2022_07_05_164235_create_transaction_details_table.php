@@ -23,6 +23,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->string('code');
             $table->string('size');
             $table->integer('qty');
+            $table->integer('total_price');
             $table->string('courier');
             $table->string('service')->nullable();
             $table->timestamps();

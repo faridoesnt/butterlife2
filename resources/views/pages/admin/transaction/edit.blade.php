@@ -65,7 +65,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Total Harga Produk</label>
-                                                <input class="form-control" value="{{ number_format($item->transaction->product_price) }}" disabled>
+                                                <input class="form-control" value="{{ number_format($item->total_price) }}" disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
